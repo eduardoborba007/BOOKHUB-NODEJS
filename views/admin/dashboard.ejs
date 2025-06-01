@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - BookHub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex flex-col">
+
+  <!-- NAVBAR -->
+  <nav class="bg-gray-900 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="/images/BackgroundLogotipo.png" alt="Logo BookHub" class="h-20 w-auto" />
+        <h1 class="text-xl font-bold text-blue-400">BookHub Admin</h1>
+      </div>
+      <div class="space-x-4">
+        <a href="/admin/usuarios" class="hover:underline text-blue-300">Usuários</a>
+        <a href="/admin/categorias" class="hover:underline text-blue-300">Categorias</a>
+        <a href="/admin/videos" class="hover:underline text-blue-300">Vídeos</a>
+        <a href="/admin/config" class="hover:underline text-blue-300">Configurações</a>
+        <a href="/admin/sair" class="text-red-400 hover:underline">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 px-6 py-10 max-w-6xl mx-auto w-full">
+    <h2 class="text-3xl font-bold text-center mb-6">Painel de Usuários</h2>
+
+    <div class="bg-gray-800 rounded-lg shadow-md overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-700">
+        <thead class="bg-gray-700 text-gray-300 text-sm">
+          <tr>
+            <th class="px-6 py-3 text-left">Nome</th>
+            <th class="px-6 py-3 text-left">Email</th>
+            <th class="px-6 py-3 text-left">Data de Cadastro</th>
+            <th class="px-6 py-3 text-left">Ações</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-700 text-sm">
+          <tr>
+            <td class="px-6 py-4">Eduardo Borba</td>
+            <td class="px-6 py-4">eduardo@bookhub.com.br</td>
+            <td class="px-6 py-4">2025-05-30</td>
+            <td class="px-6 py-4">
+              <button class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded">Editar</button>
+              <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded ml-2">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-gray-900 text-center text-sm text-gray-400 py-4 border-t border-gray-800">
+    © 2025 - Todos os direitos reservados - <strong>BookHub</strong>
+  </footer>
+
+</body>
+</html>
