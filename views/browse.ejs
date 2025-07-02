@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploração de Livros - BookHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+            <h1 class="text-xl font-bold">BookHub</h1>
+            <div class="flex items-center space-x-4">
+                <p>Entre ou cadastre-se</p>
+                <a href="#" class="text-white">💙</a>
+            </div>
+        </div>
+        <div class="bg-white flex justify-center py-2">
+            <input type="text" placeholder="Busque aqui por título" class="w-1/2 p-2 border rounded">
+        </div>
+        <nav class="bg-blue-800 flex justify-center space-x-6 p-2 text-white text-sm">
+            <a href="#">Livros</a>
+            <a href="#">Melhores Avaliações</a>
+            <a href="#">Leitura Online Grátis</a>
+            <a href="#">Categorias</a>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="w-full flex justify-center py-6 bg-gray-100">
+        <img src="/images/banner-brindes.png" alt="Banner Brindes" class="max-w-6xl">
+    </section>
+
+    <!-- Listas de Livros -->
+    <main class="max-w-7xl mx-auto p-4 space-y-10">
+        <% const categorias = [
+            { titulo: 'Os Livros mais lidos nas Livrarias em todo Brasil!', livros: livrosMaisLidos },
+            { titulo: 'Títulos Mais Aguardados Em Pré-Vendas', livros: livrosPreVendas },
+            { titulo: 'Os Livros Mais Lidos Quadrinhos e Mangás', livros: livrosQuadrinhos }
+        ]; %>
+
+        <% categorias.forEach(categoria => { %>
+            <section>
+                <h2 class="text-xl font-bold mb-4"><%= categoria.titulo %></h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <% categoria.livros.forEach(livro => { %>
+                        <div class="bg-white border rounded shadow p-2 flex flex-col items-center">
+                            <img src="<%= livro.capa %>" alt="<%= livro.titulo %>" class="w-24 h-36 object-cover mb-2">
+                            <p class="text-sm text-center">Leitura<br>Online</p>
+                            <button class="mt-2 px-2 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">Clique para ler</button>
+                        </div>
+                    <% }) %>
+                </div>
+            </section>
+        <% }) %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white mt-10">
+        <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-lg font-bold mb-2">Informações</h3>
+                <p>O BOOKHUB é um catálogo digital de livros criado para facilitar a exploração e descoberta de novas leituras. Aqui você pode navegar por categorias, ver avaliações e ler online.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-2">Recomendações de Livros</h3>
+                <form action="/recomendar" method="POST" class="space-y-2">
+                    <input type="email" name="email" placeholder="E-mail" class="w-full p-2 rounded text-black" required>
+                    <textarea name="mensagem" placeholder="Mensagem" class="w-full p-2 rounded text-black h-24" required></textarea>
+                    <button type="submit" class="bg-white text-blue-600 px-4 py-2 rounded font-bold hover:bg-gray-200">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center py-4 bg-blue-800 text-sm">2025 - Todos os direitos reservados.</div>
+    </footer>
+
+</body>
+</html>
