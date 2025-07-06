@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookHub - Harry Potter</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white p-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <button class="bg-yellow-400 text-sm px-3 py-1 rounded font-semibold">Seja bem vindo!</button>
+        <img src="/images/BackgroundLogotipo.png" alt="Logo" class="h-12">
+      </div>
+      <div class="flex items-center gap-4">
+        <input type="text" placeholder="Busque aqui por título" class="rounded px-4 py-1">
+        <span>Entre em contato <strong>(47)99999-9999</strong></span>
+        <div class="flex gap-2">
+          <img src="/images/banner.png" alt="User Icon" class="h-6">
+          <img src="/images/Potter.png" alt="Heart Icon" class="h-6">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-blue-600 text-white p-2">
+    <ul class="flex justify-center gap-6">
+      <li><a href="#" class="hover:underline">Livros</a></li>
+      <li><a href="#" class="hover:underline">Melhores Avaliações</a></li>
+      <li><a href="#" class="hover:underline">Leitura Online Grátis</a></li>
+      <li><a href="#" class="hover:underline">Categorias</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="p-6">
+    <div class="flex gap-8">
+      <img src="/images/Potter.png" alt="Harry Potter" class="w-60 shadow-lg">
+      <div>
+        <h1 class="text-2xl font-bold">Harry Potter: As Relíquias da Morte</h1>
+        <p class="text-gray-500">Páginas: 552 | Avaliações: 0</p>
+        <p class="mt-4 font-semibold text-lg">Baixar livro O Céu é de Verdade em PDF ou Ler Online</p>
+        <div class="mt-2 flex gap-4">
+          <button class="px-4 py-2 bg-gray-200 border border-gray-400 rounded">Baixar PDF</button>
+          <button class="px-4 py-2 bg-gray-200 border border-gray-400 rounded">Ler Online</button>
+        </div>
+        <div class="mt-6">
+          <h2 class="font-bold text-blue-800">SINOPSE</h2>
+          <p class="text-justify text-sm mt-1">
+            Harry Potter e as Relíquias da Morte é o sétimo e último livro da série de Harry Potter, escrito por J.K. Rowling. No livro, Harry precisa encontrar e destruir as Horcruxes de Voldemort para enfraquecê-lo e derrotá-lo. Harry Potter e as Relíquias da Morte foi adaptado para o cinema em duas partes, dirigidas por David Yates. A primeira parte foi lançada em 2010 e a segunda em 2011.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Livros Relacionados -->
+    <div class="mt-10">
+      <h2 class="text-lg font-bold text-gray-800 mb-4">LIVROS RELACIONADOS</h2>
+      <div class="grid grid-cols-6 gap-4">
+        <% const relacionados = [
+          "Harry Potter, A Pedra Filosofal",
+          "Harry Potter, A Câmera Secreta",
+          "Harry Potter, O Prisioneiro de Azkaban",
+          "Harry Potter, Cálice de Fogo",
+          "Harry Potter, A Ordem da Fênix",
+          "Harry Potter, O Enigma do Príncipe"
+        ]; %>
+        <% relacionados.forEach(function(livro) { %>
+          <div class="text-center">
+            <img src="/images/Potter.png" alt="<%= livro %>" class="h-32 mx-auto">
+            <p class="text-sm mt-2">Leitura Online</p>
+            <button class="mt-1 px-2 py-1 text-xs bg-blue-500 text-white rounded">Clique para ler</button>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 text-sm text-gray-500 border-t mt-10">
+    Copyright © <strong>BookHub™ 2025</strong>
+  </footer>
+</body>
+</html>
