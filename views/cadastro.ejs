@@ -1,57 +1,57 @@
-  <!DOCTYPE html>
-  <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuários</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gradient-to-b from-blue-600 to-blue-400 min-h-screen flex items-center justify-center">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuários</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-600 to-blue-400 min-h-screen flex items-center justify-center">
 
-    <div class="bg-white bg-opacity-10 rounded-[50px] p-10 w-full max-w-md shadow-xl backdrop-blur-md">
-      <h1 class="text-2xl font-bold text-center text-white mb-8">REGISTRAR-SE</h1>
+  <div class="bg-white bg-opacity-10 rounded-[50px] p-10 w-full max-w-md shadow-xl backdrop-blur-md">
+    <h1 class="text-2xl font-bold text-center text-white mb-8">REGISTRAR-SE</h1>
 
-      <form action="/cadastro" method="POST" class="space-y-5">
+    <form action="/cadastro" method="POST" class="space-y-5">
 
-        <!-- Nome -->
-        <div class="flex items-center bg-white rounded-xl px-4 py-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 0116 0H2z" />
-          </svg>
-          <input type="text" name="nome" placeholder="Nome" required
-                class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
-        </div>
+      <!-- Nome -->
+      <div class="flex items-center bg-white rounded-xl px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM2 18a8 8 0 0116 0H2z" />
+        </svg>
+        <input type="text" name="nome" placeholder="Nome" required
+              class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
+      </div>
 
-        <!-- Email -->
-        <div class="flex items-center bg-white rounded-xl px-4 py-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M2.25 6.75a2.25 2.25 0 012.25-2.25h15a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75zm2.4-.75l7.35 5.25L19.35 6H4.65zM3.75 8.91v8.34h16.5V8.91l-8.25 5.9-8.25-5.9z" />
-          </svg>
-          <input type="email" name="email" placeholder="E-mail" required
-                class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
-        </div>
+      <!-- Email -->
+      <div class="flex items-center bg-white rounded-xl px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M2.25 6.75a2.25 2.25 0 012.25-2.25h15a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75zm2.4-.75l7.35 5.25L19.35 6H4.65zM3.75 8.91v8.34h16.5V8.91l-8.25 5.9-8.25-5.9z" />
+        </svg>
+        <input type="email" name="email" placeholder="E-mail" required
+              class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
+      </div>
 
-        <!-- Senha -->
-        <div class="flex items-center bg-white rounded-xl px-4 py-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M5 8a5 5 0 1110 0v1h1.5A1.5 1.5 0 0118 10.5v6A1.5 1.5 0 0116.5 18h-13A1.5 1.5 0 012 16.5v-6A1.5 1.5 0 013.5 9H5V8zm2 1h6V8a3 3 0 10-6 0v1z" clip-rule="evenodd" />
-          </svg>
-          <input type="password" name="senha" placeholder="Senha" required
-                class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
-        </div>
+      <!-- Senha -->
+      <div class="flex items-center bg-white rounded-xl px-4 py-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5 8a5 5 0 1110 0v1h1.5A1.5 1.5 0 0118 10.5v6A1.5 1.5 0 0116.5 18h-13A1.5 1.5 0 012 16.5v-6A1.5 1.5 0 013.5 9H5V8zm2 1h6V8a3 3 0 10-6 0v1z" clip-rule="evenodd" />
+        </svg>
+        <input type="password" name="senha" placeholder="Senha" required
+              class="w-full bg-transparent focus:outline-none text-gray-800 placeholder-gray-400">
+      </div>
 
-        <!-- Botão -->
-        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-full transition">
-          Criar Conta
-        </button>
+      <!-- Botão -->
+      <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-full transition">
+        Criar Conta
+      </button>
 
-        <!-- Link login -->
-        <p class="text-center text-white text-sm">
-          Já tenho uma conta? <a href="/login" class="text-blue-200 hover:underline">Entrar</a>
-        </p>
+      <!-- Link login -->
+      <p class="text-center text-white text-sm">
+        Já tenho uma conta? <a href="/" class="text-blue-200 hover:underline">Entrar</a>
+      </p>
 
-      </form>
-    </div>
+    </form>
+  </div>
 
-  </body>
-  </html>
+</body>
+</html>

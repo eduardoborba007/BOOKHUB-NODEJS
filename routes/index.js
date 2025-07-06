@@ -1,25 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-// Página de login (index)
+// Página de login
 router.get('/', (req, res) => {
-  res.render('index'); // views/index.ejs
+  res.render('admin/index'); // views/admin/index.ejs
 });
 
 // Página de cadastro
 router.get('/cadastro', (req, res) => {
-  res.render('cadastro'); // views/cadastro.ejs
+  res.render('admin/cadastro'); // views/admin/cadastro.ejs
 });
 
 // Processar o cadastro
 router.post('/cadastro', (req, res) => {
   const { nome, email, senha } = req.body;
 
-  // Aqui você poderia salvar no banco de dados futuramente
+  // Exemplo: salvar no banco de dados (substitua por código real depois)
   console.log('Dados recebidos:', nome, email, senha);
 
-  // Exibir confirmação simples por enquanto
-  res.send(`<h2>Cadastro recebido com sucesso!</h2><p>${nome} - ${email}</p>`);
+  // Redireciona para login após cadastro
+  res.redirect('/');
 });
 
 module.exports = router;
