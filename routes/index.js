@@ -3,12 +3,12 @@ const router = express.Router();
 
 // Página de login
 router.get('/', (req, res) => {
-  res.render('admin/index'); // views/admin/index.ejs
+  res.render('index'); // views/admin/index.ejs
 });
 
 // Página de cadastro
 router.get('/cadastro', (req, res) => {
-  res.render('admin/cadastro'); // views/admin/cadastro.ejs
+  res.render('cadastro'); // views/admin/cadastro.ejs
 });
 
 // Processar o cadastro
