@@ -1,24 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* Redireciona / para /cadastro */
-router.get('/', function(req, res) {
-  res.redirect('/cadastro');
+// Página de login (index)
+router.get('/', (req, res) => {
+  res.render('index'); // views/index.ejs
 });
 
-/* Rota GET para exibir o formulário de cadastro */
-router.get('/cadastro', function(req, res) {
-  res.render('cadastro'); // Vai buscar o arquivo views/cadastro.ejs
+// Página de cadastro
+router.get('/cadastro', (req, res) => {
+  res.render('cadastro'); // views/cadastro.ejs
 });
 
-/* Rota POST para processar o formulário */
-router.post('/cadastro', function(req, res) {
+// Processar o cadastro
+router.post('/cadastro', (req, res) => {
   const { nome, email, senha } = req.body;
 
-  // Aqui você pode salvar no banco futuramente
-  console.log('Recebido:', nome, email, senha);
+  // Aqui você poderia salvar no banco de dados futuramente
+  console.log('Dados recebidos:', nome, email, senha);
 
-  // Por enquanto, só retorna uma confirmação simples
+  // Exibir confirmação simples por enquanto
   res.send(`<h2>Cadastro recebido com sucesso!</h2><p>${nome} - ${email}</p>`);
 });
 
