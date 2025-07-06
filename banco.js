@@ -1,4 +1,3 @@
-// banco.js
 const mysql = require('mysql2/promise');
 
 async function conectarBD() {
@@ -32,7 +31,15 @@ async function buscarUsuario({ email, senha }) {
   return linhas.length > 0 ? linhas[0] : null;
 }
 
+async function cadastrarUsuario({ nome, email, senha }) {
+  const conexao = await conectarBD();
+  const sql = 'INSERT INTO usuarios (usunome, usuemail, ususenha) VALUES (?, ?, ?)';
+  await conexao.execute(sql, [nome, email, senha]);
+  console.log('✅ Novo usuário cadastrado!');
+}
+
 module.exports = {
   buscarAdmin,
-  buscarUsuario
+  buscarUsuario,
+  cadastrarUsuario
 };
