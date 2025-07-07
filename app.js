@@ -7,6 +7,7 @@ const createError = require('http-errors');
 
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
+const leituraRouter = require('./routes/leitura'); // ✅ Rota pública leituraonline
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Sessão deve vir antes das rotas
+// Sessão
 app.use(session({
   secret: 'chave-secreta',
   resave: false,
@@ -31,16 +32,15 @@ app.use(session({
 // Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/', leituraRouter); // ✅ Leitura pública, sem /admin
 
-// Exemplo de rota protegida
+// Página protegida (exemplo)
 app.get('/home', (req, res) => {
-  res.render('home'); // Certifique-se de ter home.ejs
+  res.render('home');
 });
 
-// Tratamento de erro 404
+// Erros
 app.use((req, res, next) => next(createError(404)));
-
-// Tratamento de erros gerais
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
