@@ -7,34 +7,32 @@ const createError = require('http-errors');
 
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
-const leituraRouter = require('./routes/leitura'); // ✅ Rota pública leituraonline
+const leituraRouter = require('./routes/leitura');
+const favoritosRouter = require('./routes/favoritos');
 
 const app = express();
 
-// Configurações da view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Middlewares globais
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Sessão
 app.use(session({
   secret: 'chave-secreta',
   resave: false,
   saveUninitialized: false
 }));
 
-// Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/', leituraRouter); // ✅ Leitura pública, sem /admin
+app.use('/', leituraRouter);
+app.use('/', favoritosRouter);
 
-// Página protegida (exemplo)
+// Tela home após login
 app.get('/home', (req, res) => {
   res.render('home');
 });

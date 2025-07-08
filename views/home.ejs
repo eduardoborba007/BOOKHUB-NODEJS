@@ -144,23 +144,30 @@
   </section>
 
   <!-- Rodapé -->
-  <footer class="bg-blue-700 text-white py-8 mt-10">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between px-4 space-y-6 md:space-y-0">
-      <div class="md:w-1/2">
-        <h3 class="font-bold text-lg mb-2">Informações</h3>
-        <p class="text-sm">Quem somos?</p>
-        <p class="text-sm mt-2">O BOOKHUB é um site que disponibiliza gratuitamente obras literárias e mangás.</p>
-        <p class="text-xs mt-4">2025 – Todos os direitos reservados.</p>
+  <footer class="mt-16 bg-blue-600 text-white px-6 py-10">
+    <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <!-- Coluna Esquerda -->
+      <div>
+        <h3 class="text-lg font-bold mb-3">Informações</h3>
+        <p class="text-sm leading-relaxed">
+          O BOOKHUB é um catálogo digital de livros criado para conectar leitores apaixonados com uma ampla variedade de títulos. Nosso objetivo é fornecer um espaço virtual organizado, onde você possa explorar, pesquisar e avaliar obras de diferentes gêneros. Com interface intuitiva e recursos de leitura online, o BOOKHUB facilita sua jornada literária, ajudando você a encontrar novos títulos e compartilhar suas experiências com outros leitores.
+        </p>
       </div>
-      <div class="md:w-1/2">
-        <h3 class="font-bold text-lg mb-2">Recomendações de Livros</h3>
-        <p class="text-sm mb-2">Receba novidades e recomendações de leitura:</p>
-        <form>
-          <input type="email" placeholder="E-mail" class="w-full p-2 mb-2 rounded text-black">
-          <textarea placeholder="Mensagem" class="w-full p-2 mb-2 rounded text-black"></textarea>
-          <button type="submit" class="bg-white text-blue-700 font-bold py-2 px-4 rounded hover:bg-gray-100">Enviar</button>
+
+      <!-- Coluna Direita -->
+      <div>
+        <h3 class="text-lg font-bold mb-3">Recomendações de Livros</h3>
+        <p class="text-sm mb-4">Se você estiver interessado em ler esse livro, por favor, envie sua recomendação abaixo.</p>
+        <form class="space-y-4">
+          <input type="email" placeholder="E-mail" class="w-full px-4 py-2 rounded border border-white bg-blue-500 placeholder-white text-white focus:outline-none">
+          <textarea rows="4" placeholder="Escreva..." class="w-full px-4 py-2 rounded border border-white bg-blue-500 placeholder-white text-white focus:outline-none"></textarea>
+          <button class="bg-white text-blue-600 px-5 py-2 rounded hover:bg-gray-100 font-medium">Enviar</button>
         </form>
       </div>
+    </div>
+
+    <div class="text-center mt-10 text-sm">
+      2025 – Todos os direitos reservados.
     </div>
   </footer>
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookHub - Meus Favoritos</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  <!-- Top bar -->
+  <div class="bg-blue-700 text-white px-6 py-2 flex justify-between items-center text-sm">
+    <button class="bg-yellow-400 text-black font-bold px-3 py-1 rounded">Seja bem vindo!</button>
+    <div class="flex items-center gap-3">
+      <span>Entre em contato 📞 <a href="tel:4799999999" class="underline">(47)99999-9999</a></span>
+      <i class="fab fa-facebook ml-2"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="flex justify-between items-center px-6 py-4 bg-white">
+    <img src="/images/BackgroundLogotipo.png" alt="Logo" class="h-16">
+    <input type="text" placeholder="Busque aqui por título" class="flex-1 mx-10 border rounded px-4 py-2 max-w-xl">
+    <div class="flex gap-4 text-xl text-blue-800">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-heart"></i>
+    </div>
+  </header>
+
+  <!-- Navegação -->
+  <nav class="bg-blue-600 text-white p-2">
+    <ul class="flex justify-center gap-6 font-medium">
+      <li><i class="fas fa-home"></i></li>
+      <li><a href="/home" class="hover:underline">🏠Home</a></li>
+      <li><a href="#" class="hover:underline">Livros</a></li>
+      <li><a href="#" class="hover:underline">Melhores Avaliações</a></li>
+      <li><a href="#" class="hover:underline">Leitura Online Grátis</a></li>
+      <li><a href="#" class="hover:underline">Categorias</a></li>
+    </ul>
+  </nav>
+
+  <!-- Título -->
+  <main class="p-6 max-w-7xl mx-auto">
+    <h2 class="text-lg font-semibold text-blue-800 mb-6">
+      <button class="bg-blue-100 text-blue-800 px-5 py-2 rounded-full font-medium">Meus Favoritos</button>
+    </h2>
+
+    <!-- Lista de livros favoritos -->
+    <% const favoritos = [
+      { titulo: "Relíquias da Morte", img: "/images/livro1.png" },
+      { titulo: "O Alquimista", img: "/images/livro2.png" },
+      { titulo: "Crianças Sábias", img: "/images/livro3.png" },
+      { titulo: "O Inverso", img: "/images/livro4.png" },
+      { titulo: "Sorte no Amor", img: "/images/livro5.png" },
+      { titulo: "A Pedra Filosofal", img: "/images/pedra.png" },
+      { titulo: "A Câmara Secreta", img: "/images/camara.png" },
+      { titulo: "O Prisioneiro de AZKABAN", img: "/images/azkaban.png" },
+      { titulo: "Cálice de Fogo", img: "/images/calice.png" },
+      { titulo: "A Ordem da Fênix", img: "/images/fenix.png" }
+    ]; %>
+
+    <!-- Grid de cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      <% favoritos.forEach(function(livro) { %>
+        <div class="border rounded-lg shadow bg-white flex flex-col items-center text-center h-[350px] overflow-hidden">
+          <img src="/images/imperiodosossos.png" alt="<%= livro.titulo %>" class="w-full h-40 object-cover rounded-t-lg">
+          <div class="flex flex-col justify-between flex-1 p-3 w-full">
+            <div class="mb-2">
+              <p class="text-sm font-semibold text-gray-900">Harry Potter, <%= livro.titulo %></p>
+              <p class="text-xs text-gray-600 mt-1">Leitura Online</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <button class="flex-1 bg-blue-600 text-white text-xs py-2 rounded hover:bg-blue-700 transition">Clique para Ler</button>
+              <button class="bg-gray-200 text-gray-700 px-2 py-2 rounded hover:bg-gray-300">
+                <i class="fas fa-chevron-down text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="mt-16 bg-blue-600 text-white px-6 py-10">
+    <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <!-- Coluna Esquerda -->
+      <div>
+        <h3 class="text-lg font-bold mb-3">Informações</h3>
+        <p class="text-sm leading-relaxed">
+          O BOOKHUB é um catálogo digital de livros criado para conectar leitores apaixonados com uma ampla variedade de títulos. Nosso objetivo é fornecer um espaço virtual organizado, onde você possa explorar, pesquisar e avaliar obras de diferentes gêneros. Com interface intuitiva e recursos de leitura online, o BOOKHUB facilita sua jornada literária, ajudando você a encontrar novos títulos e compartilhar suas experiências com outros leitores.
+        </p>
+      </div>
+
+      <!-- Coluna Direita -->
+      <div>
+        <h3 class="text-lg font-bold mb-3">Recomendações de Livros</h3>
+        <p class="text-sm mb-4">Se você estiver interessado em ler esse livro, por favor, envie sua recomendação abaixo.</p>
+        <form class="space-y-4">
+          <input type="email" placeholder="E-mail" class="w-full px-4 py-2 rounded border border-white bg-blue-500 placeholder-white text-white focus:outline-none">
+          <textarea rows="4" placeholder="Escreva..." class="w-full px-4 py-2 rounded border border-white bg-blue-500 placeholder-white text-white focus:outline-none"></textarea>
+          <button class="bg-white text-blue-600 px-5 py-2 rounded hover:bg-gray-100 font-medium">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="text-center mt-10 text-sm">
+      2025 – Todos os direitos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>

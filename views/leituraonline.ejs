@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BookHub - Harry Potter</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-white text-gray-900">
-  <!-- Header -->
-  <header class="bg-blue-900 text-white p-4">
-    <div class="flex justify-between items-center">
-      <div class="flex items-center gap-4">
-        <button class="bg-yellow-400 text-sm px-3 py-1 rounded font-semibold">Seja bem vindo!</button>
-        <img src="/images/BackgroundLogo.png" alt="Logo" class="h-12">
-      </div>
-      <div class="flex items-center gap-4">
-        <input type="text" placeholder="Busque aqui por título" class="rounded px-4 py-1">
-        <span>Entre em contato <strong></strong></span>
-        <a href="tel:4799999999" class="underline">(47)99999-9999</a>
-        <div class="flex gap-2">
-        </div>
-      </div>
+
+  <!-- Top bar -->
+  <div class="bg-blue-700 text-white px-6 py-2 flex justify-between items-center text-sm">
+    <button class="bg-yellow-400 text-black font-bold px-3 py-1 rounded">Seja bem vindo!</button>
+    <div class="flex items-center gap-3">
+      <span>Entre em contato 📞 <a href="tel:4799999999" class="underline">(47)99999-9999</a></span>
+      <i class="fab fa-facebook ml-2"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+  </div>
+
+  <!-- Header com logo, busca e ícones -->
+  <header class="flex justify-between items-center px-6 py-4">
+    <img src="/images/BackgroundLogotipo.png" alt="Logo" class="h-16">
+    <input type="text" placeholder="Busque aqui por título" class="flex-1 mx-10 border rounded px-4 py-2 max-w-xl">
+    <div class="flex gap-4 text-xl text-blue-800">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-heart"></i>
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- Navegação -->
   <nav class="bg-blue-600 text-white p-2">
-    <ul class="flex justify-center gap-6">
+    <ul class="flex justify-center gap-6 font-medium">
+      <li><i class="fas fa-home"></i></li>
+      <li><a href="/home" class="hover:underline">🏠Home</a></li>
       <li><a href="#" class="hover:underline">Livros</a></li>
       <li><a href="#" class="hover:underline">Melhores Avaliações</a></li>
       <li><a href="#" class="hover:underline">Leitura Online Grátis</a></li>
@@ -34,19 +41,22 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Conteúdo principal -->
   <main class="p-6">
-    <div class="flex gap-8">
+    <div class="flex flex-wrap md:flex-nowrap gap-8">
       <img src="/images/Potter.png" alt="Harry Potter" class="w-60 shadow-lg">
       <div>
-        <h1 class="text-2xl font-bold">Harry Potter: As Relíquias da Morte</h1>
-        <p class="text-gray-500">Páginas: 552 | Avaliações: 0</p>
-        <p class="mt-4 font-semibold text-lg">Baixar livro O Céu é de Verdade em PDF ou Ler Online</p>
-        <div class="mt-2 flex gap-4">
-          <button class="px-4 py-2 bg-gray-200 border border-gray-400 rounded">Baixar PDF</button>
-          <button class="px-4 py-2 bg-gray-200 border border-gray-400 rounded">Ler Online</button>
+        <h1 class="text-2xl font-bold mb-1">Harry Potter: As Relíquias da Morte</h1>
+        <p class="text-green-600 font-semibold text-sm mb-2">Páginas: 552</p>
+        <div class="flex items-center gap-2 text-yellow-400 mb-2">
+          ★★★★★ <span class="text-gray-600 text-sm">Avaliações: 0</span>
         </div>
-        <div class="mt-6">
+        <p class="mt-2 font-semibold">Baixar livro Harry Potter em PDF ou Ler Online</p>
+        <div class="mt-2 flex gap-4">
+          <button class="px-4 py-2 border border-gray-400 rounded hover:bg-gray-100">Baixar PDF</button>
+          <button class="px-4 py-2 border border-gray-400 rounded hover:bg-gray-100">Ler Online</button>
+        </div>
+        <div class="mt-6 max-w-xl">
           <h2 class="font-bold text-blue-800">SINOPSE</h2>
           <p class="text-justify text-sm mt-1">
             Harry Potter e as Relíquias da Morte é o sétimo e último livro da série de Harry Potter, escrito por J.K. Rowling. No livro, Harry precisa encontrar e destruir as Horcruxes de Voldemort para enfraquecê-lo e derrotá-lo. Harry Potter e as Relíquias da Morte foi adaptado para o cinema em duas partes, dirigidas por David Yates. A primeira parte foi lançada em 2010 e a segunda em 2011.
@@ -58,29 +68,37 @@
     <!-- Livros Relacionados -->
     <div class="mt-10">
       <h2 class="text-lg font-bold text-gray-800 mb-4">LIVROS RELACIONADOS</h2>
-      <div class="grid grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center">
+        <!-- Card -->
         <% const relacionados = [
-          "Harry Potter, A Pedra Filosofal",
-          "Harry Potter, A Câmera Secreta",
-          "Harry Potter, O Prisioneiro de Azkaban",
-          "Harry Potter, Cálice de Fogo",
-          "Harry Potter, A Ordem da Fênix",
-          "Harry Potter, O Enigma do Príncipe"
+          { titulo: "A Pedra Filosofal", img: "/images/pedra.png" },
+          { titulo: "A Câmara Secreta", img: "/images/camara.png" },
+          { titulo: "O Prisioneiro de AZKABAN", img: "/images/azkaban.png" },
+          { titulo: "Cálice de Fogo", img: "/images/calice.png" },
+          { titulo: "A Ordem de Fênix", img: "/images/fenix.png" },
+          { titulo: "O Enigma do Príncipe", img: "/images/principe.png" }
         ]; %>
         <% relacionados.forEach(function(livro) { %>
-          <div class="text-center">
-            <img src="/images/Estouafim.png" alt="<%= livro %>" class="h-32 mx-auto">
-            <p class="text-sm mt-2">Leitura Online</p>
-            <button class="mt-1 px-2 py-1 text-xs bg-blue-500 text-white rounded">Clique para ler</button>
+          <div class="border rounded flex flex-col justify-between shadow-sm">
+            <img src="/images/Estouafim.png"" alt="<%= livro.titulo %>" class="h-52 w-full object-contain p-2">
+            <p class="text-sm font-medium px-2">Harry Potter, <%= livro.titulo %></p>
+            <p class="text-lg font-semibold text-gray-700 mt-2">Leitura Online</p>
+            <div class="flex mt-2">
+              <button class="flex-1 bg-blue-600 text-white text-xs py-2 hover:bg-blue-700">Clique para Ler</button>
+              <button class="w-10 bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-heart text-blue-600"></i>
+              </button>
+            </div>
           </div>
         <% }) %>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-center p-4 text-sm text-gray-500 border-t mt-10">
+  <!-- Rodapé -->
+  <footer class="text-center p-4 text-sm text-blue-800 border-t mt-10">
     Copyright © <strong>BookHub™ 2025</strong>
   </footer>
+
 </body>
 </html>

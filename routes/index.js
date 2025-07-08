@@ -1,25 +1,45 @@
 const express = require('express');
 const router = express.Router();
+const { buscarUsuario, buscarAdmin, cadastrarUsuario } = require('../banco');
 
 // Página de login
 router.get('/', (req, res) => {
-  res.render('index'); // views/admin/index.ejs
+  res.render('index');
 });
 
 // Página de cadastro
 router.get('/cadastro', (req, res) => {
-  res.render('cadastro'); // views/admin/cadastro.ejs
+  res.render('cadastro');
 });
 
-// Processar o cadastro
-router.post('/cadastro', (req, res) => {
+// Cadastro de usuário
+router.post('/cadastro', async (req, res) => {
   const { nome, email, senha } = req.body;
+  try {
+    await cadastrarUsuario({ nome, email, senha });
+    res.redirect('/');
+  } catch (error) {
+    res.send('Erro ao cadastrar: ' + error.message);
+  }
+});
 
-  // Exemplo: salvar no banco de dados (substitua por código real depois)
-  console.log('Dados recebidos:', nome, email, senha);
+// LOGIN (admin ou usuário)
+router.post('/login', async (req, res) => {
+  const { email, senha } = req.body;
 
-  // Redireciona para login após cadastro
-  res.redirect('/');
+  try {
+    const admin = await buscarAdmin({ email, senha });
+    const usuario = await buscarUsuario({ email, senha });
+
+    if (admin || usuario) {
+      req.session.usuario = admin || usuario;
+      res.redirect('/home');
+    } else {
+      res.send('❌ Email ou senha inválidos.');
+    }
+  } catch (error) {
+    res.status(500).send('Erro ao fazer login: ' + error.message);
+  }
 });
 
 module.exports = router;
